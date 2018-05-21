@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { Dish } from '../shared/dish';
-import { DISHES } from '../shared/dishes';
+
 
 
 
