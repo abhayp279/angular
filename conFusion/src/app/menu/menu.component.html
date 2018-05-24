@@ -7,14 +7,14 @@
 </div>
 <div fxFlex>
      <mat-grid-list cols="2" rowHeight="200px">
-       <mat-grid-tile *ngFor="let dishes of dishes" (click) = "onSelect(dishes)">
-         <img height="200px" src={{dishes.image}} alt={{dishes.name}}>
+       <mat-grid-tile *ngFor="let dish of dishes" [routerLink]="['/dishdetail', dish.id]">
+         <img height="200px" src={{dish.image}} alt={{dish.name}}>
          <mat-grid-tile-footer>
-         <h1 mat-line>{{dishes.name | uppercase}}</h1>
+         <h1 mat-line>{{dish.name | uppercase}}</h1>
          
         </mat-grid-tile-footer>
       </mat-grid-tile>
     </mat-grid-list>
     </div>
-    <app-dishdetail [dishes] = "selectedDish"></app-dishdetail>
+    <!-- <app-dishdetail [dishes] = "selectedDish"></app-dishdetail> -->
   </div>
