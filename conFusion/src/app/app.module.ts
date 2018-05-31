@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule, MatAutocompleteModule, MatInputModule, MatFormFieldModule, MatLineModule, MatListModule, MatGridListModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule, MatAutocompleteModule, MatInputModule, MatFormFieldModule, MatLineModule, MatListModule, MatGridListModule, MatCheckboxModule, MatDialogModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpModule} from '@angular/http';
 import { NgModule } from '@angular/core';
@@ -22,7 +22,9 @@ import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
 
-import { AppRoutingModule } from './app-routing/app-routing.module'
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { LoginComponent } from './login/login.component'
+
 
 
 @NgModule({
@@ -34,8 +36,12 @@ import { AppRoutingModule } from './app-routing/app-routing.module'
     FooterComponent,
     HomeComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    LoginComponent
   ],
+  entryComponents: [
+    LoginComponent
+],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -50,6 +56,8 @@ import { AppRoutingModule } from './app-routing/app-routing.module'
     MatInputModule,
     MatGridListModule,
     MatFormFieldModule,
+    MatCheckboxModule,
+    MatDialogModule,
     FlexLayoutModule,
     FormsModule, 
     ReactiveFormsModule,

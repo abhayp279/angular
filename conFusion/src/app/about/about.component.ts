@@ -19,6 +19,7 @@ export class AboutComponent implements OnInit {
       private location: Location, 
       private route: ActivatedRoute) {
         this.leaders = leaderservice.getLeaders()
+
        console.log(this.leaders);
      }
   
