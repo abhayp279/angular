@@ -18,13 +18,17 @@ export class AboutComponent implements OnInit {
   constructor(private leaderservice: LeaderService, 
       private location: Location, 
       private route: ActivatedRoute) {
-        this.leaders = leaderservice.getLeaders()
+        
+        
+       
 
-       console.log(this.leaders);
+      // console.log(this.leader);
      }
   
 
   ngOnInit() {
+    let id = +this.route.snapshot.params['id'];
+    this.leaders = this.leaderservice.getLeaders();
   }
 
 }

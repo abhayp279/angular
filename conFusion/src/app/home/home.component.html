@@ -33,16 +33,16 @@
   </mat-card-content>
 </mat-card>
 
-<mat-card *ngIf="leaders" fxFlex>
+<mat-card *ngIf="leader" fxFlex>
     <mat-card-header>
       <div mat-card-avatar></div>
       <mat-card-title>
-        <h3>{{leaders.name | uppercase}}</h3>
+        <h3>{{leader.name | uppercase}}</h3>
       </mat-card-title>
     </mat-card-header>
-    <img mat-card-image src={{leaders.image}} alt={{leaders.name}}>
+    <img mat-card-image src={{leader.image}} alt={{leader.name}}>
     <mat-card-content>
-      <p>{{leaders.description}}
+      <p>{{leader.description}}
       </p>
     </mat-card-content>
   </mat-card>
