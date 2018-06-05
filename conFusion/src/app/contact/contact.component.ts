@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Feedback, ContactType } from '../shared/feedback';
-import { latLng, tileLayer } from 'leaflet';
+import { icon, latLng, marker, polyline, tileLayer } from 'leaflet';
 
 @Component({
   selector: 'app-contact',
@@ -14,7 +14,40 @@ export class ContactComponent implements OnInit {
   feedback: Feedback;
   contactType = ContactType;
 
-  constructor(private fb: FormBuilder) {
+  googleMaps = tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+    maxZoom: 20,
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+    detectRetina: true
+  });
+  googleHybrid = tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+    maxZoom: 20,
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+    detectRetina: true
+  });
+
+  spot = marker([ 29.938801, -95.340056 ], {
+    icon: icon({
+      iconSize: [ 25, 41 ],
+      iconAnchor: [ 13, 41 ],
+      iconUrl: 'leaflet/marker-icon.png',
+      shadowUrl: 'leaflet/marker-shadow.png'
+    })
+    });
+  
+  layersControl = {
+    baseLayers: {
+      'Google Maps': this.googleMaps,
+      'Google Hybrid': this.googleHybrid
+    },
+    overlays: {
+      'Over Here': this.spot,
+     
+    }
+  };
+  
+  
+  
+    constructor(private fb: FormBuilder) {
     this.createForm();
   }
 
@@ -50,13 +83,15 @@ export class ContactComponent implements OnInit {
   }
 
   options = {
-    layers: [
+    layers: [ this.spot,
       tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
         maxZoom: 20,
         subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
         detectRetina: true
       })
+      
     ],
+   
     zoom: 7,
     center: latLng([ 29.7604 , -95.3698 ])
   };

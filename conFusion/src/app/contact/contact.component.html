@@ -88,9 +88,10 @@
           <div fxFlex="20">
                 <h4>Map of our Location</h4>
                 <div class="map"
-     leaflet
-     [leafletOptions]="options">
-</div>
+                 leaflet
+                  [leafletOptions]="options"
+                  [leafletLayersControl]="layersControl">
+                  </div>
           </div>
         </div>
       </div>
