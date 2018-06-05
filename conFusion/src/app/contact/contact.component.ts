@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Feedback, ContactType } from '../shared/feedback';
-
+import { latLng, tileLayer } from 'leaflet';
 
 @Component({
   selector: 'app-contact',
@@ -48,5 +48,17 @@ export class ContactComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  options = {
+    layers: [
+      tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+        maxZoom: 20,
+        subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+        detectRetina: true
+      })
+    ],
+    zoom: 7,
+    center: latLng([ 29.7604 , -95.3698 ])
+  };
 
 }

@@ -5,6 +5,7 @@ import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIco
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpModule} from '@angular/http';
 import { NgModule } from '@angular/core';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 
 
@@ -65,7 +66,8 @@ import { LoginComponent } from './login/login.component'
     AppRoutingModule,
     MatSlideToggleModule,
     MatSelectModule,
-    MatOptionModule
+    MatOptionModule,
+    LeafletModule.forRoot()
   ],
   providers: [ DishService, PromotionService, LeaderService],
   bootstrap: [AppComponent]

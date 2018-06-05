@@ -8,6 +8,13 @@
       "root": "src",
       "outDir": "dist",
       "assets": [
+
+          {
+          "glob": "**/*",
+          "input": "../node_modules/leaflet/dist/images",
+          "output": "leaflet/"
+          },
+
         "assets",
         "favicon.ico"
       ],
@@ -20,7 +27,8 @@
       "prefix": "app",
       "styles": [
         "styles.scss",
-        "../node_modules/font-awesome/scss/font-awesome.scss"
+        "../node_modules/font-awesome/scss/font-awesome.scss",
+        "../node_modules/leaflet/dist/leaflet.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
