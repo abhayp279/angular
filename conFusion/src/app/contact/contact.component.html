@@ -90,7 +90,11 @@
                 <div class="map"
                  leaflet
                   [leafletOptions]="options"
-                  [leafletLayersControl]="layersControl">
+                  [leafletLayersControl]="layersControl"
+                  [leafletPanOptions]="panOptions"
+                  [leafletZoomOptions]="zoomOptions"
+                  [leafletZoomPanOptions]="zoomPanOptions"
+                  [leafletFitBoundsOptions]="fitBoundsOptions">
                   </div>
           </div>
         </div>

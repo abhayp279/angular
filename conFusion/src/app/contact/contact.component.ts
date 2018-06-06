@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Feedback, ContactType } from '../shared/feedback';
-import { icon, latLng, marker, polyline, tileLayer } from 'leaflet';
+import { icon, latLng, marker, polyline, tileLayer, circleMarker } from 'leaflet';
+
 
 @Component({
   selector: 'app-contact',
@@ -29,10 +30,12 @@ export class ContactComponent implements OnInit {
     icon: icon({
       iconSize: [ 25, 41 ],
       iconAnchor: [ 13, 41 ],
-      iconUrl: 'leaflet/marker-icon.png',
-      shadowUrl: 'leaflet/marker-shadow.png'
+      iconUrl: '/assets/images/markers/marker-icon-violet.png',
+      shadowUrl: '/assets/images/markers/marker-shadow.png'
     })
     });
+
+    spot2 = circleMarker([29.938801, -95.340056]);
   
   layersControl = {
     baseLayers: {
@@ -83,11 +86,13 @@ export class ContactComponent implements OnInit {
   }
 
   options = {
-    layers: [ this.spot,
+    layers: [ this.spot, this.spot2,
+      
       tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
         maxZoom: 20,
         subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
         detectRetina: true
+        
       })
       
     ],
