@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Feedback, ContactType } from '../shared/feedback';
-import { icon, latLng, marker, polyline, tileLayer, circleMarker } from 'leaflet';
+import { icon, latLng, marker, polyline, tileLayer, circleMarker, polygon, circle } from 'leaflet';
 
 
 @Component({
@@ -36,6 +36,11 @@ export class ContactComponent implements OnInit {
     });
 
     spot2 = circleMarker([29.938801, -95.340056]);
+
+   // route = polyline([[ 29.938801, -95.340056 ],
+   
+   //   [ 29.847106, -95.342239 ]]);
+  
   
   layersControl = {
     baseLayers: {
@@ -44,6 +49,7 @@ export class ContactComponent implements OnInit {
     },
     overlays: {
       'Over Here': this.spot,
+      //'Route': this.route
      
     }
   };
@@ -86,7 +92,7 @@ export class ContactComponent implements OnInit {
   }
 
   options = {
-    layers: [ this.spot, this.spot2,
+    layers: [ this.spot, this.spot2, polygon([[ 46.8, -121.85 ], [ 46.92, -121.92 ], [ 46.87, -121.8 ]]), circle([ 46.95, -122 ], { radius:10000 }),
       
       tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
         maxZoom: 20,
