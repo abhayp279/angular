@@ -39,7 +39,7 @@
           <mat-input-container class="half-width" dividerColor="{{(feedbackForm.get('email').hasError('required')&& feedbackForm.get('email').touched) ? 'warn': 'primary'}}">
             <input matInput formControlName="email" placeholder="Email" type="email" required>
             <mat-hint>
-              <span [hidden]="!feedbackForm.get('email').hasError('required') && feedbackForm.get('email').touched">Email number is required</span>
+              <span [hidden]="!feedbackForm.get('email').hasError('required') && feedbackForm.get('email').touched">Email id is required</span>
             </mat-hint>
           </mat-input-container>
         </p>
