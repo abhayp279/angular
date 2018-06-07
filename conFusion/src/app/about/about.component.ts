@@ -6,6 +6,7 @@ import { Location } from '@angular/common'
 
 
 
+
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',

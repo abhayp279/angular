@@ -10,7 +10,7 @@ import { DishService } from '../services/dish.service';
 })
 export class MenuComponent implements OnInit {
 
-  dishes = Dish[0];
+  dishes: Dish[];
 
   selectedDish: Dish;
  
@@ -20,11 +20,11 @@ export class MenuComponent implements OnInit {
   }
  
  constructor(private dishService: DishService) { 
-  console.log(this.dishes);
+  //console.log(this.dishes);
  }
 
   ngOnInit() {
-    this.dishes = this.dishService.getDishes().then(dishes => this.dishes = dishes);
+    this.dishService.getDishes().then(dishes => this.dishes = dishes);
   }
 
 }

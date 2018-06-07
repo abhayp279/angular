@@ -4,6 +4,7 @@ import { Feedback, ContactType } from '../shared/feedback';
 import { icon, latLng, marker, polyline, tileLayer, circleMarker, polygon, circle } from 'leaflet';
 
 
+
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',

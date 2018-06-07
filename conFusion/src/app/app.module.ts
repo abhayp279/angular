@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule, MatAutocompleteModule, MatInputModule, MatFormFieldModule, MatLineModule, MatListModule, MatGridListModule, MatCheckboxModule, MatDialogModule, MatSlideToggleModule, MatSelectModule, MatOptionModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule, MatAutocompleteModule, MatInputModule, MatFormFieldModule, MatLineModule, MatListModule, MatGridListModule, MatCheckboxModule, MatDialogModule, MatSlideToggleModule, MatSelectModule, MatOptionModule, MatProgressSpinnerModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpModule} from '@angular/http';
 import { NgModule } from '@angular/core';
@@ -67,7 +67,8 @@ import { LoginComponent } from './login/login.component'
     MatSlideToggleModule,
     MatSelectModule,
     MatOptionModule,
-    LeafletModule.forRoot()
+    LeafletModule.forRoot(),
+    MatProgressSpinnerModule
   ],
   providers: [ DishService, PromotionService, LeaderService],
   bootstrap: [AppComponent]
