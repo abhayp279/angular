@@ -15,6 +15,7 @@ export class DishService {
   getDishes(): Observable<Dish[]> {
     return Observable.of(DISHES).delay(2000);
   }
+<<<<<<< HEAD
 
   getDish(id: number): Observable<Dish> {
     return Observable.of(DISHES.filter((dish) => (dish.id === id))[0]).delay(2000);
@@ -26,6 +27,15 @@ export class DishService {
 
   getDishIds(): Observable<number[]> {
     return Observable.of(DISHES.map(dish => dish.id ));
+=======
+
+  getDish(id: number): Observable<Dish> {
+    return Observable.of(DISHES.filter((dish) => (dish.id === id))[0]).delay(2000);
+  }
+
+  getFeaturedDish(): Observable<Dish> {
+    return Observable.of(DISHES.filter((dish) => dish.featured)[0]).delay(2000);
+>>>>>>> refs/remotes/origin/master
   }
   
   }

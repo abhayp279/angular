@@ -30,12 +30,17 @@ export class DishdetailComponent implements OnInit {
    }
 
   ngOnInit() {
+<<<<<<< HEAD
     //let id = +this.route.snapshot.params['id'];
     //this.dishservice.getDish(id).subscribe(dish => this.dish = dish);
 
     this.dishservice.getDishIds().subscribe(dishIds => this.dishIds = dishIds);
     this.route.params.switchMap((params: Params) => this.dishservice.getDish(+params['id']))
     .subscribe(dish => { this.dish = dish; this.setPrevNext(dish.id); });
+=======
+    let id = +this.route.snapshot.params['id'];
+    this.dishservice.getDish(id).subscribe(dish => this.dish = dish);
+>>>>>>> refs/remotes/origin/master
   }
       
   setPrevNext(dishId: number) {
