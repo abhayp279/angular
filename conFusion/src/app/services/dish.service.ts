@@ -28,6 +28,6 @@ export class DishService {
     return Observable.of(DISHES.map(dish => dish.id ));
   }
   
-  }
+}
 
 
