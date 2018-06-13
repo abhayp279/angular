@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { Dish } from '../shared/dish';
 import { Params, ActivatedRoute } from '@angular/router';
@@ -23,9 +23,10 @@ export class DishdetailComponent implements OnInit {
   prev: number;
   next: number;
    
+
   constructor(private dishservice: DishService, 
     private location: Location, 
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute, @Inject('BaseURL') private BaseURL) {
     // console.log(this.dishes);
    }
 

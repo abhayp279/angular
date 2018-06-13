@@ -25,8 +25,9 @@ import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
-import { LoginComponent } from './login/login.component'
-
+import { LoginComponent } from './login/login.component';
+import { baseURL } from './shared/baseurl';
+import { ProcessHttpMsgService } from './services/process-httpmsg.service'
 
 
 @NgModule({
@@ -68,9 +69,10 @@ import { LoginComponent } from './login/login.component'
     MatSelectModule,
     MatOptionModule,
     LeafletModule.forRoot(),
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    HttpModule
   ],
-  providers: [ DishService, PromotionService, LeaderService],
+  providers: [ DishService, PromotionService, LeaderService, {provide: 'BaseURL', useValue: baseURL}, ProcessHttpMsgService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
