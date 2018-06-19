@@ -20,12 +20,12 @@
               <p> {{dish.description}}</p>
             </mat-card-content>
             <mat-card-actions>
-              <button md-button [routerLink]="['/dishdetail', prev]"><span class="fa fa-chevron-left fa-lg"></span></button>
+              <button mat-button [routerLink]="['/dishdetail', prev]"><span class="fa fa-chevron-left fa-lg"></span></button>
               <button mat-button (click)="goBack()">BACK</button>
               <button mat-button>LIKE</button>
               <button mat-button>SHARE</button>
               <span class="flex-spacer"></span>
-              <button md-button [routerLink]="['/dishdetail', next]"><span class="fa fa-chevron-right fa-lg"></span></button>
+              <button mat-button [routerLink]="['/dishdetail', next]"><span class="fa fa-chevron-right fa-lg"></span></button>
               
             </mat-card-actions>
           </mat-card>
@@ -55,6 +55,34 @@
       <div [hidden]="dish">
         <mat-spinner></mat-spinner> <h4>Loading... Please Wait...</h4>
       </div>
+      <form novalidate [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+        <mat-input-container class="form-size" dividerColor="{{(formErrors.author) ? 'warn' : 'primary'}}">
+          <input matInput formControlName="author" placeholder="Name" type="text" required>
+          <mat-hint>
+            <span [hidden]="!(formErrors.author)">{{formErrors.author}}</span>
+          </mat-hint>
+        </mat-input-container>
+        <mat-slider class="slider" formControlName="rating" min="1" max="5" step="1" thumbLabel tickInterval="1" value="5"></mat-slider>
+        <mat-input-container class="form-size" dividerColor="{{(formErrors.comment) ? 'warn' : 'primary'}}">
+          <textarea matInput formControlName="comment" placeholder="Your Comment" required rows=12></textarea>
+          <mat-hint>
+            <span [hidden]="!(formErrors.comment)">{{formErrors.comment}}</span>
+          </mat-hint>
+        </mat-input-container>
+        <p>
+          <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="commentForm.invalid">Submit</button>
+        </p>
+      </form>
+    
+    <div [hidden]="dish || errMess">
+      <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+    </div>
+
+    <div *ngIf="errMess">
+      <h2>Error</h2>
+      <h4>{{errMess}}</h4>
+  </div>
+     
       </div>
       
   
